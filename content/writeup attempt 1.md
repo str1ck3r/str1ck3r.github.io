@@ -1,3 +1,10 @@
+> [!info] 📦 Box Info: Conversor
+> **IP:** `10.10.14.169`
+> **OS:** 🐧 Linux
+> **Difficulty:** 🟢 Easy
+> **Release Date:** 15 Oct 2025
+> **Points:** 20
+
 Начинаем с базы. Проводим nmap скан со следующими флагами:
 ```
 nmap -sC -sV -vvv 10.129.9.241
