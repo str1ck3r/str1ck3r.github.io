@@ -6,7 +6,6 @@
       <table>
         <tr><td>OS:</td><td>Windows</td></tr>
         <tr><td>Difficulty:</td><td>Easy</td></tr>
-        <tr><td>Points:</td><td>20</td></tr>
         <tr><td>Release:</td><td>11 Jan 2025</td></tr>
       </table>
     </div>
