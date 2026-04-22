@@ -1,3 +1,45 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+.htb-box-info {
+  border: 2px solid #9fef00;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #1a1a1a;
+  
+  .box-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    img {
+      width: 150px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    
+    .box-details {
+      flex: 1;
+      
+      h2 {
+        margin: 0 0 10px 0;
+        color: #9fef00;
+      }
+      
+      table {
+        width: 100%;
+        
+        td {
+          padding: 4px 8px;
+          
+          &:first-child {
+            font-weight: bold;
+            color: #9fef00;
+            width: 120px;
+          }
+        }
+      }
+    }
+  }
+}

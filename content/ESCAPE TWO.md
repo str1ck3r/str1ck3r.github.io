@@ -1,11 +1,17 @@
-> [!info] 
-> **Machine:** EscapeTwo &nbsp;&nbsp;|&nbsp;&nbsp; **OS:** Linux &nbsp;&nbsp;|&nbsp;&nbsp; **Difficulty:** Medium
-> **IP:** 10.10.11.123 &nbsp;&nbsp;|&nbsp;&nbsp; **Released:** 2024-05-24
-
-> [!info] <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-box"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 8Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg> Box Info
-> **Machine:** EscapeTwo &nbsp;&nbsp;|&nbsp;&nbsp; **OS:** Linux &nbsp;&nbsp;|&nbsp;&nbsp; **Difficulty:** Medium
-> **IP:** 10.10.11.123 &nbsp;&nbsp;|&nbsp;&nbsp; **Released:** 2024-05-24
-
+<div class="htb-box-info">
+  <div class="box-header">
+    <img src="https://htb-mp-prod-public-storage.s3.eu-central-1.amazonaws.com/avatars/d5fcf2425893a73cf137284e2de580e1.png" alt="Machine Name">
+    <div class="box-details">
+      <h2>Box Info</h2>
+      <table>
+        <tr><td>OS:</td><td>Windows</td></tr>
+        <tr><td>Difficulty:</td><td>Easy</td></tr>
+        <tr><td>Points:</td><td>20</td></tr>
+        <tr><td>Release:</td><td>11 Jan 2025</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
 
 #### Machine Information
 As is common in real life Windows pentests, you will start this box with credentials for the following account: rose / KxEPkKe6R8su
