@@ -1,42 +1,43 @@
 @use "./base.scss";
 
 .htb-box-info {
-  border: 2px solid #9fef00;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px 0;
-  background-color: #1a1a1a;
+  border: 2px solid #9fef00 !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+  margin: 20px 0 !important;
+  background-color: #1a1a1a !important;
   
   .box-header {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
+    display: flex !important;
+    gap: 20px !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
     
     img {
-      width: 150px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      width: 150px !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
     }
     
     .box-details {
-      flex: 1;
+      flex: 1 !important;
       
       h2 {
-        margin: 0 0 10px 0;
-        color: #9fef00;
+        margin: 0 0 10px 0 !important;
+        color: #9fef00 !important;
       }
       
       table {
-        width: 100%;
+        width: 100% !important;
+        border-collapse: collapse !important;
         
         td {
-          padding: 4px 8px;
+          padding: 4px 8px !important;
           
           &:first-child {
-            font-weight: bold;
-            color: #9fef00;
-            width: 120px;
+            font-weight: bold !important;
+            color: #9fef00 !important;
+            width: 120px !important;
           }
         }
       }
