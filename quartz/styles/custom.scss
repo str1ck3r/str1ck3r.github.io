@@ -1,5 +1,10 @@
 @use "./base.scss";
 
+$htb-easy: #9fef00;      // Зеленый
+$htb-medium: #f5a623;    // Оранжевый
+$htb-hard: #ff3e3e;      // Красный
+$htb-insane: #ff0080;    // Малиновый
+
 .htb-box-info {
   border: 2px solid #9fef00 !important;
   border-radius: 8px !important;
@@ -40,6 +45,63 @@
             width: 100px !important;
           }
         }
+      }
+    }
+  }
+
+  // Модификаторы для разных уровней сложности
+  &.easy {
+    border-color: $htb-easy !important;
+    
+    .box-details {
+      h2 {
+        color: $htb-easy !important;
+      }
+      
+      table td:first-child {
+        color: $htb-easy !important;
+      }
+    }
+  }
+
+  &.medium {
+    border-color: $htb-medium !important;
+    
+    .box-details {
+      h2 {
+        color: $htb-medium !important;
+      }
+      
+      table td:first-child {
+        color: $htb-medium !important;
+      }
+    }
+  }
+
+  &.hard {
+    border-color: $htb-hard !important;
+    
+    .box-details {
+      h2 {
+        color: $htb-hard !important;
+      }
+      
+      table td:first-child {
+        color: $htb-hard !important;
+      }
+    }
+  }
+
+  &.insane {
+    border-color: $htb-insane !important;
+    
+    .box-details {
+      h2 {
+        color: $htb-insane !important;
+      }
+      
+      table td:first-child {
+        color: $htb-insane !important;
       }
     }
   }
