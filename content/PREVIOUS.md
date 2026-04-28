@@ -1,6 +1,6 @@
 <div class="htb-box-info medium">
   <div class="box-header">
-    <img src="https://htb-mp-prod-public-storage.s3.eu-central-1.amazonaws.com/avatars/d5fcf2425893a73cf137284e2de580e1.png" alt="Machine Name">
+    <img src="https://htb-mp-prod-public-storage.s3.eu-central-1.amazonaws.com/avatars/f34c6756e7c75b48ec112831eb27940a.png" alt="Machine Name">
     <div class="box-details">
       <h2>Box Info</h2>
       <table>
