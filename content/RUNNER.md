@@ -29,7 +29,8 @@ PORT     STATE SERVICE     VERSION
 ![[Pasted image 20260501192307.png]]
 
 Находим возможных пользователей через стандартные страницы:
-![[Pasted image 20260501192401.png]]![[Pasted image 20260501192406.png]]
+![[Pasted image 20260501192401.png]]
+![[Pasted image 20260501192406.png]]
 
 Порт 8000:
 ![[Pasted image 20260501192548.png]]
