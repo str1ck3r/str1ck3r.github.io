@@ -12,7 +12,8 @@
   </div>
 </div>
 
-The box is active => there is no writeup till it not active...
+The box is active => there is no writeup till it's not active...
+
 But I have this short exploatation path:
 
 1.Exposed Python/MCP Developer Tool  
