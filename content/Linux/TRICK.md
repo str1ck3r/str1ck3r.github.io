@@ -1,4 +1,4 @@
-<div class="htb-box-info medium">
+<div class="htb-box-info easy">
   <div class="box-header">
     <img src="https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9e4d90d0-4dae-4eb1-8b0e-b84d1102149c.png" alt="Machine Name">
     <div class="box-details">
