@@ -1,9 +1,18 @@
----
-cover: https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9e4d90d0-4dae-4eb1-8b0e-b84d1102149c.png
-status: SOLVED
-type: linux
-level: "1"
----
+<div class="htb-box-info medium">
+  <div class="box-header">
+    <img src="https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9e4d90d0-4dae-4eb1-8b0e-b84d1102149c.png" alt="Machine Name">
+    <div class="box-details">
+      <h2>Box Info</h2>
+      <table>
+        <tr><td>OS:</td><td>Linux</td></tr>
+        <tr><td>Difficulty:</td><td>Easy</td></tr>
+        <tr><td>Release:</td><td>18 June 2022</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
 # enum
 ```bash
 sudo nmap -sC -sV -v 10.129.227.180
