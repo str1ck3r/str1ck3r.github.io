@@ -1,10 +1,17 @@
----
-cover: https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9e4d90d7-0cc5-49c3-be2b-06b1946db205.png
-type: windows
-level: "2"
-status: SOLVED
----
-p.s. this writeup with my personal comments and think processes so it isn't so clean as other ones...
+<div class="htb-box-info medium">
+  <div class="box-header">
+    <img src="https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9e4d90d7-0cc5-49c3-be2b-06b1946db205.png" alt="Machine Name">
+    <div class="box-details">
+      <h2>Box Info</h2>
+      <table>
+        <tr><td>OS:</td><td>Windows</td></tr>
+        <tr><td>Difficulty:</td><td>Medium</td></tr>
+        <tr><td>Release:</td><td>11 Nov 2017</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
 
 # enumeration 
 ```
