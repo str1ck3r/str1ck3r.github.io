@@ -1,16 +1,19 @@
+<div class="htb-box-info medium">
+  <div class="box-header">
+    <img src="https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9fc00b04-9a27-4db7-a521-e4eb36ff2c5b.png" alt="Machine Name">
+    <div class="box-details">
+      <h2>Box Info</h2>
+      <table>
+        <tr><td>OS:</td><td>Windows</td></tr>
+        <tr><td>Difficulty:</td><td>Medium</td></tr>
+        <tr><td>Release:</td><td>4 Sep 2025</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
 ---
-cover: https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9fc00b04-9a27-4db7-a521-e4eb36ff2c5b.png
-status: SOLVED
-type: windows
-level: "2"
----
-# lessons i need to learn from this box:
-1. вот я столкнулся с тем что я прошелся по всему playbook-у для file upload атаки. но вот у меня не было того что я должен был проверить через что возможно будет проходить этот файл. чем обрабатываться... 
-2. я когда получил первоначальный доступ я какую-то херню начал проверять. не было чего-то нормально свормированного что ли. надо было домашнуюю директорию проверить. я этого не сделал... также надо было директорию приложения.
-3. вот я нашел эксплойт для SeTcbPrivilege но я начал его вслепую запускать. я никогда не встречался с этим говном. надо было почитать больше, что это делает, а не сидеть и запускать эксплой. просто надо было поменять имя процесса... 
-
-
-
 # Enumeration
 ```bash
 nmap -sC -sV -vv 10.129.234.67
