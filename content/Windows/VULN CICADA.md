@@ -1,14 +1,18 @@
----
-cover: https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9f3d3ede-372d-446b-bf9c-62a8f2bc372b.png
-type: windows
-status: SOLVED
-level: "2"
----
-# Lessons I Learned:
-1. во время атаки ESC8 у меня не срабатывали некоторые интсрументы. Я думал, что проблема у меня. Что я делаю что-то не так. Но оказалось, что инструменты тоже подводят. => Думаю надо рассматривать этот вариант и после неудачи с одним инструментом пробовать другой.
-2. kerberos enviroment еще меня смутил, я хуево оперировал там. надо постоянно запускать инструменты с `-k` флагом и запрашить тикеты... опыт получил, теперь буду лучше работать и знаю что когда `NTLM:False` это знак, что это kerberos environment...
-3. 
+<div class="htb-box-info medium">
+  <div class="box-header">
+    <img src="https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9f3d3ede-372d-446b-bf9c-62a8f2bc372b.png" alt="Machine Name">
+    <div class="box-details">
+      <h2>Box Info</h2>
+      <table>
+        <tr><td>OS:</td><td>Windows</td></tr>
+        <tr><td>Difficulty:</td><td>Medium</td></tr>
+        <tr><td>Release:</td><td>3 Jul 2025</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
 
+---
 
 # Enumeration
 ```
