@@ -1,9 +1,18 @@
----
-cover: https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9e4d90d5-05bb-4795-8c39-eb15451d3100.png
-status: SOLVED
-level: "2"
-type: linux
----
+<div class="htb-box-info medium">
+  <div class="box-header">
+    <img src="https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9e4d90d5-05bb-4795-8c39-eb15451d3100.png" alt="Machine Name">
+    <div class="box-details">
+      <h2>Box Info</h2>
+      <table>
+        <tr><td>OS:</td><td>Linux</td></tr>
+        <tr><td>Difficulty:</td><td>Medium</td></tr>
+        <tr><td>Release:</td><td>13 Jul 2019</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
 # enumeration:
 ```bash
 nmap -p- --min-rate 1000 --open 10.129.70.7
