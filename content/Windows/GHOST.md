@@ -14,7 +14,7 @@
 
 
 
-# enumeration
+# SCANNING
 ```bash
 nmap -v -p- --open --min-rate 1000 10.129.231.105
 ```
@@ -154,7 +154,7 @@ PORT    STATE SERVICE
 ```
 
 
-## web enum
+# WEB
 ### port 80
 ![[Pasted image 20261016113509.png]]
 
@@ -211,7 +211,7 @@ nothing interesting, looks like we have to login first:
 307      GET        1l       52w     4724c http://intranet.ghost.htb:8008/profile => http://intranet.ghost.htb:8008/login
 ```
 
-### Ldap Injection
+## Ldap Injection
 
 intercepted login request
 ![[Pasted image 20261016121556.png]]
@@ -255,7 +255,7 @@ we got some login page
 Made by microsoft so i think it's pointless ( for now ) to test some sql, ldap injections idk...
 
 
-### DNS enum
+## DNS enum
 ```bash
 dig any ghost.htb @10.129.231.105
 ```
@@ -284,7 +284,7 @@ there is gitea but no bitbucket... added to `/etc/hosts`.
 ### gitea.ghost.htb
 ![[Pasted image 20261016125855.png]]
 
-### Password fuzz
+## Password fuzz
 
 In intraned first page I saw this message:
 ![[Pasted image 20261016125956.png]]
@@ -321,7 +321,7 @@ szrr8kpc3z6onlq$$*
 szrr8kpc3z6onlqf$$* -> stopped on this
 ```
 
-### Repositories enumeration
+## Repositories enumeration
 
 So we have found our first creds: `gitea_temp_principal`:`szrr8kpc3z6onlqf`
 
@@ -358,7 +358,7 @@ So I need some api key for this shit to interact...
 ![[Pasted image 20261016161917.png]]
 
 
-# API abuse
+## API abuse
 
 so with this key `a5af628828958c976a3b6cc81a` I can access some new blog features from `http://ghost.htb:8008`. There is an api endpoint found from enum..
 
@@ -513,7 +513,8 @@ ff02::2 ip6-allrouters
 
 This is still docker container...
 
-### Ticket extraction
+# PRIVILEGE ESCALATION
+## Ticket extraction
 
 So I think this machine is domain joined so let's enum in that direction:
 ```bash
@@ -654,7 +655,7 @@ hashcat hash -m 19700 /usr/share/wordlists/rockyou.txt
 
 not cracked... ( I forgot that this is service account and their hashes hard to crack or even uncrackable because of password rotation if I remeber it well... )
 
-### NTLM Relay
+## NTLM Relay
 
 So we have to find other route. I look up to relay attacks
 ```bash
@@ -737,7 +738,7 @@ C:.
 
 Ok. Let's get back to our bloodhound
 
-### ReadGMSAPassword
+## ReadGMSAPassword abuse
 
 interesting...
 ![[Pasted image 20261017185226.png]]
@@ -825,7 +826,7 @@ LjA6YWM6Y2xhc3NlczpQYXNzd29yZFByb3RlY3RlZFRyYW5zcG9ydDwvQXV0aG5Db250ZXh0Q2xhc3NS
 Now we need to auth into `federation.ghost.htb` as justin, intercept all requests with burp proxy and change this `SAMLResponse` value to one that we forged:
 ![[Pasted image 20261018084653.png]]
 
-### MSSQL  abuse
+## MSSQL  abuse
 
 And we got in !
 ![[Pasted image 20261018084707.png]]
@@ -936,7 +937,7 @@ And we compomised PRIMARY domain !
 
 
 # GHOST.HTB TAKEOVER
-#### Trust enumeration
+## Trust enumeration
 
 But it's not over yet. We have to compromise domain controller...
 
@@ -1062,3 +1063,4 @@ and grab root flag:
 ![[Pasted image 20261019072801.png]]
 
 Now we can access `dc01.ghost.htb` share!
+
