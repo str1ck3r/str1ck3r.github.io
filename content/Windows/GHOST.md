@@ -1,9 +1,19 @@
----
-cover: https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9e4d90cc-c872-47f7-acd9-36ddbdf0eab8.png
-status: SOLVED
-level: "4"
-type: windows
----
+<div class="htb-box-info insane">
+  <div class="box-header">
+    <img src="https://cdn.services-k8s.prod.aws.htb.systems/content/machines/avatar/9e4d90cc-c872-47f7-acd9-36ddbdf0eab8.png" alt="Machine Name">
+    <div class="box-details">
+      <h2>Box Info</h2>
+      <table>
+        <tr><td>OS:</td><td>Windows</td></tr>
+        <tr><td>Difficulty:</td><td>Medium</td></tr>
+        <tr><td>Release:</td><td>13 Jul 2024</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
 # enumeration
 ```bash
 nmap -v -p- --open --min-rate 1000 10.129.231.105
